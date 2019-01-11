@@ -17,11 +17,13 @@ class DetailViewController: UIViewController, UIViewControllerTransitioningDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         switch selectedIndex {
-        case 0:
+        case 0, 3:
             imageView.image = UIImage(named: "apple.png")
+            view.backgroundColor = .black
             break
         case 1:
             imageView.image = UIImage(named: "orange.png")
+            view.backgroundColor = .white
             break
         case 2:
             imageView.image = UIImage(named: "mango.png")
@@ -31,6 +33,10 @@ class DetailViewController: UIViewController, UIViewControllerTransitioningDeleg
         }
         let tapGet = UITapGestureRecognizer(target: self, action: #selector(closeButtonAction(_:)))
         view.addGestureRecognizer(tapGet)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(closeButtonAction(_:)))
+        swipeDown.direction = .down
+        self.view.addGestureRecognizer(swipeDown)
     }
     
     @IBAction func closeButtonAction(_ sender: Any) {
