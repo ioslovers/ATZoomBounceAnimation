@@ -6,3 +6,6 @@ ATZoomBounceAnimation is provides you app store like viewcontroller presentation
   <img border="0" src="⁨ATZoomBounceAnimation⁩/⁨ATZoomBounceAnimation⁩.gif" alt="" width="320" height="568">
 
 </MTMarkdownOptions>
+
+
+![](ATZoomBounceAnimation⁩/⁨ATZoomBounceAnimation⁩.gif)
