@@ -13,13 +13,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var appleButton: UIButton!
     @IBOutlet weak var orangeButton: UIButton!
     @IBOutlet weak var bananaButton: UIButton!
+    @IBOutlet weak var bigButton: UIButton!
     let popAnimator = ATZoomBounceAnimation()
     var arrayButton = [UIButton]()
     var clickedButtonTag: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        arrayButton = [appleButton, orangeButton, bananaButton]
+        arrayButton = [appleButton, orangeButton, bananaButton, bigButton]
         popAnimator.dismissCompletion = {
             let button = self.arrayButton[self.clickedButtonTag]
             button.isHidden = false
@@ -27,25 +28,22 @@ class ViewController: UIViewController {
     }
 
     @IBAction func appleButtonAction(_ sender: Any) {
-        let button = sender as! UIButton
-        //present details view controller
-        let details = storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        details.transitioningDelegate = self
-        clickedButtonTag = button.tag
-        details.selectedIndex = button.tag
-        present(details, animated: true, completion: nil)
+        presentDetailViewController(sender: sender)
     }
     
     @IBAction func orangeButtonAction(_ sender: Any) {
-        let button = sender as! UIButton
-        let details = storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        details.transitioningDelegate = self
-        clickedButtonTag = button.tag
-        details.selectedIndex = button.tag
-        present(details, animated: true, completion: nil)
+        presentDetailViewController(sender: sender)
     }
     
     @IBAction func bananaButtonAction(_ sender: Any) {
+       presentDetailViewController(sender: sender)
+    }
+    
+    @IBAction func bigButtonAction(_ sender: Any) {
+        presentDetailViewController(sender: sender)
+    }
+    
+    func presentDetailViewController(sender: Any) {
         let button = sender as! UIButton
         let details = storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         details.transitioningDelegate = self
